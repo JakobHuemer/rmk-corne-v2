@@ -1,6 +1,6 @@
 [keyboard]
 name = "rmk-corne-v2"
-product_name = "rmk-corne-v2"
+product_name = "jakkis corne"
 vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
@@ -15,12 +15,17 @@ keymap = [
         ["B", "L", "D", "W", "Z", "Quote", "F", "O", "U", "J"],
         ["N", "R", "T", "S", "G", "Y", "H", "A", "E", "I"],
         ["Q", "X", "M", "C", "V", "K", "P", "Dot", "Minus", "Comma"],
-        ["_", "_", "LShift", "Space", "Space", "Enter", "Backspace", "RAlt", "_", "_"]
+        ["_", "_", "LShift", "Space", "_", "_", "Backspace", "RAlt", "_", "_"]
     ]
 ]
 
 [ble]
 enabled = true
+
+# nRF52840's saadc pin for reading battery level, you can use a pin number or "vddh"
+battery_adc_pin = "vddh"
+# Set the BLE tx power; higher means better signal but more power consumption. For nRF52840 the maximum tx power is 8.
+default_tx_power = 4
 
 [split]
 connection = "ble"
@@ -34,8 +39,6 @@ col_offset = 0
 [split.central.matrix]
 row_pins = ["P0_22", "P0_24", "P1_00", "P0_11"]
 col_pins = ["P0_29", "P0_02", "P1_15", "P1_13", "P1_11"]
-# RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
-# row2col = true
 
 [[split.peripheral]]
 rows = 4
@@ -46,17 +49,21 @@ col_offset = 5
 [split.peripheral.matrix]
 row_pins = ["P0_22", "P0_24", "P1_00", "P0_11"]
 col_pins = ["P1_11", "P1_13", "P1_15", "P0_02", "P0_29"]
-# RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
-# row2col = true
 
-# [[split.peripheral]]
-# rows = 2
-# cols = 1
-# row_offset = 2
-# col_offset = 2
-# serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
-# row_pins = ["PIN_9", "PIN_11"]
-# col_pins = ["PIN_10"]
+[storage]
+# Enable/disable storage feature (default: true)
+enabled = true
+# Number of flash sectors to allocate (default: 2)
+num_sectors = 2
+# Storage start address (default: 0 = auto-allocate from end)
+start_addr = 0x00000000
+# Clear all storage data on boot, including keymap, BLE bonds, etc
+clear_storage = false
+# Clear only layout/keymap data, preserve BLE bonds
+clear_layout = false
 
 [rmk]
 split_peripherals_num = 1
+
+ble_profiles_num = 6
+
