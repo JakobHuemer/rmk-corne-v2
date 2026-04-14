@@ -8,21 +8,21 @@ chip = "nrf52840"
 
 [layout]
 rows = 4
-cols = 3
+cols = 10
 layers = 2
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["_", "_", "Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "_", "_"]
     ],
     [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
-    ],
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "Kc0"],
+        ["_", "_", "Kc1", "Kc2", "Kc3", "Kc4", "Kc5", "Kc6", "_", "_"]
+    ]
 ]
 
 [ble]
@@ -32,26 +32,26 @@ enabled = true
 connection = "ble"
 
 [split.central]
-rows = 2
-cols = 2
+rows = 4
+cols = 5
 row_offset = 0
 col_offset = 0
 
 [split.central.matrix]
-row_pins = ["P1_04", "P1_06"]
-col_pins = ["P0_02", "P1_15"]
+row_pins = ["P0_22", "P0_24", "P1_00", "P0_11"]
+col_pins = ["P1_02", "P1_07", "P1_11", "P1_13", "P1_15"]
 # RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
 # row2col = true
 
 [[split.peripheral]]
-rows = 2
-cols = 1
+rows = 4
+cols = 5
 row_offset = 2
 col_offset = 2
 
 [split.peripheral.matrix]
-row_pins = ["P1_04", "P1_06"]
-col_pins = ["P0_02"]
+row_pins = ["P0_22", "P0_24", "P1_00", "P0_11"]
+col_pins = ["P1_15", "P1_13", "P1_11", "P1_07", "P1_02"]
 # RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
 # row2col = true
 
