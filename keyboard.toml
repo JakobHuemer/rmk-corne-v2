@@ -25,7 +25,7 @@ enabled = true
 # nRF52840's saadc pin for reading battery level, you can use a pin number or "vddh"
 battery_adc_pin = "vddh"
 # Set the BLE tx power; higher means better signal but more power consumption. For nRF52840 the maximum tx power is 8.
-default_tx_power = 4
+default_tx_power = 8
 
 [split]
 connection = "ble"
@@ -51,19 +51,22 @@ row_pins = ["P0_22", "P0_24", "P1_00", "P0_11"]
 col_pins = ["P1_11", "P1_13", "P1_15", "P0_02", "P0_29"]
 
 [storage]
-# Enable/disable storage feature (default: true)
+# # Enable/disable storage feature (default: true)
 enabled = true
-# Number of flash sectors to allocate (default: 2)
-num_sectors = 2
-# Storage start address (default: 0 = auto-allocate from end)
-start_addr = 0x00000000
-# Clear all storage data on boot, including keymap, BLE bonds, etc
-clear_storage = false
-# Clear only layout/keymap data, preserve BLE bonds
-clear_layout = false
+# # Number of flash sectors to allocate (default: 2)
+# num_sectors = 2
+# # Storage start address (default: 0 = auto-allocate from end)
+# start_addr = 0x00000000
+# # Clear all storage data on boot, including keymap, BLE bonds, etc
+# clear_storage = false
+# # Clear only layout/keymap data, preserve BLE bonds
+clear_layout = true
 
-[rmk]
-split_peripherals_num = 1
+# [host]
+# vial_enabled = false
 
-ble_profiles_num = 6
+# [rmk]
+# split_peripherals_num = 1
+
+# ble_profiles_num = 6
 
