@@ -27,6 +27,14 @@ gap_timeout = "140ms"
 HRM = { normal_mode = true }
 SPACE_NAV = { hold_on_other_press = true }
 
+[behavior.fork]
+forks = [
+  { trigger = "Quote", negative_output = "Quote", positive_output = "WM(Kc2, LShift)", match_any = "LShift|RShift" },
+  { trigger = "Dot", negative_output = "Dot", positive_output = "WM(Scln, LShift)", match_any = "LShift|RShift" },
+  { trigger = "Mins", negative_output = "Mins", positive_output = "WM(Mins, LShift)", match_any = "LShift|RShift" },
+  { trigger = "Comma", negative_output = "Comma", positive_output = "Scln", match_any = "LShift|RShift" }
+]
+
 [[layer]]
 name = "base"
 keys = """
